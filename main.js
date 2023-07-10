@@ -34,6 +34,14 @@ class LinkedList {
     return values;
   }
 
+  *iterate() {
+    let node = this.head;
+    while (node) {
+      yield node.data;
+      node = node.next;
+    }
+  }
+
   popAt(data) {
     let prev = this.head;
     let node = this.head;
@@ -96,3 +104,11 @@ class LinkedList {
 }
 
 const ll = new LinkedList();
+ll.push(1);
+ll.push(2);
+ll.push(3);
+ll.push(4);
+
+for (value of ll.iterate()) {
+  console.log(value);
+}
